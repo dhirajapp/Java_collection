@@ -1,0 +1,54 @@
+
+### Let's understand the implementation of inheritance before proceeding with the Wildcards in Generics.
+
+class Student
+{
+....
+}
+class EnggStudent extends Student
+{
+....
+}
+
+class Test
+{
+    public static void main(String args[])
+    {
+        Student s1 = new Student();
+        EnggStudent s2 = new EnggStudent();
+        s1 = s2;
+    }
+}
+
+
+### The above code will work absolutely fine as a parent class can inherit or make a reference to any object of its descendant child class because every EnggStudent is also a Student.
+
+
+###  Let's modify the above code using collection and generics.
+
+
+class Student
+{
+....
+}
+class EnggStudent extends Student
+{
+....
+}
+
+class Test
+{
+    public static void main(String args[])
+    {
+        ArrayList<Student> al1 = new ArrayList<Student>();
+        ArrayList<EnggStudent> al2 = new ArrayList<EnggStudent>();
+        al1 = al2;
+    }
+}
+
+
+####Here a collection ArrayList has been used which is also a generic class. Two ArrayList is created of Student and EnggStudent type and the reference of Student ArrayList is referred to an ArrayList of EnggStudent. But this program throws a compiler error as ArrayList EnggStudent cannot be converted to ArrayList Student. Therefore the application of Generics failed during inheritance.
+Unlike arrays, different instantiations of a generic type are not compatible with each other, not even explicitly. This incompatibility may be softened by the wildcard if ? is used as an actual type parameter.
+
+
+
